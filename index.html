@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <title>通知テスト その壱</title>
+</head>
+<body>
+    <p>ボタンを押して通知</p>
+    <button id="showNotify">通知する</button>
+
+    <script>
+        Notification.requestPermission()
+
+        var showDOM = document.getElementById("showNotify")
+        showDOM.addEventListener("click",showNotify)
+
+        function showNotify(){
+            if (Notification.permission === "granted") {
+                new Notification("めっせーじを受信しました その壱",
+                    {
+                        "icon": "http://www.skypeassets.com/i/common/images/icons/apple-touch-icon.png",
+                        "body": "偽スカイプからのめっせーじ",
+                    })
+            }
+        }
+
+        window.onload = showNotify()
+    </script>
+</body>
+</html>
